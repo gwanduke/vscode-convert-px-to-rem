@@ -2,7 +2,7 @@
   "name": "convert-px-to-rem",
   "displayName": "Convert px to rem",
   "description": "Convert px to rem dead simple.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "email": "letsget23@gmail.com",
     "name": "Gwan-duk Kim",
