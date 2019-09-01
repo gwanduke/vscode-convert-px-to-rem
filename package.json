@@ -24,6 +24,21 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Convert px to rem",
+      "properties": {
+        "convert-px-to-rem.base-px": {
+          "type": "number",
+          "default": 16,
+          "description": "rem 변환시 기준이 되는 px 값 지정"
+        },
+        "convert-px-to-rem.precision": {
+          "type": "number",
+          "default": 4,
+          "description": "rem 변환시 소수점 이하 몇자리까지 포함할 것인지 (반올림됨)"
+        }
+      }
+    },
     "commands": [
       {
         "command": "extension.pxToRem",

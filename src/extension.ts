@@ -12,6 +12,8 @@ interface IReplaceInfo {
  * @param selectionEnd 영역선택의 끝점. 마지막 라인 외에는 모두 Infinity로 넘겨야함
  * @param lineText 이 라인의 전체 텍스트
  * @param regex 추출할 regex
+ * @param basePx rem 변환시 사용될 기준 px값. 16으로 지정시 16px -> 1rem
+ * @param precision 소수점 이하 몇자리 까지 표시하고 반올림 할지 지정. 4로 지정시 0.12345가 결과로 나온경우 0.1235로 표시
  *
  * @returns 수정할 영역에 대한 정보 배열
  */
@@ -20,7 +22,9 @@ const getReplaceInfosFromLine = (
   startPos: number,
   endPos: number,
   lineText: string,
-  regex: RegExp
+  regex: RegExp,
+  basePx: number,
+  precision: number
 ): IReplaceInfo[] => {
   let regexExec: RegExpExecArray | null;
   const replaceInfos: IReplaceInfo[] = [];
@@ -29,12 +33,14 @@ const getReplaceInfosFromLine = (
     if (regexExec.index < startPos) {
       continue;
     } else {
+      const value = Number(regexExec[0].split("px")[0]) / basePx;
+      const pow = Math.pow(10, precision);
       replaceInfos.push({
         targetRange: new vscode.Range(
           new vscode.Position(lineNum, regexExec.index),
           new vscode.Position(lineNum, regexExec.index + regexExec[0].length)
         ),
-        replaceText: Number(regexExec[0].split("px")[0]) / 16 + "rem"
+        replaceText: Math.round(value * pow) / pow + "rem"
       });
     }
   }
@@ -49,6 +55,10 @@ export function activate(context: vscode.ExtensionContext) {
     const editor = vscode.window.activeTextEditor;
     let convertedCount = 0;
     let replaceInfos: IReplaceInfo[] = [];
+
+    const config = vscode.workspace.getConfiguration("convert-px-to-rem");
+    const basePx = <number>config.get("base-px");
+    const precision = <number>config.get("precision");
 
     if (editor) {
       /**
@@ -67,7 +77,9 @@ export function activate(context: vscode.ExtensionContext) {
             lineNum === selection.start.line ? selection.start.character : 0,
             lineNum === selection.end.line ? selection.end.character : Infinity,
             editor.document.lineAt(lineNum).text,
-            regex
+            regex,
+            basePx,
+            precision
           );
 
           replaceInfos = [...replaceInfos, ...newReplaceInfos];
