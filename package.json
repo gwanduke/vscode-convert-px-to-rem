@@ -1,0 +1,52 @@
+{
+  "name": "convert-px-to-rem",
+  "displayName": "Convert px to rem",
+  "description": "Convert px to rem dead simple.",
+  "version": "0.0.1",
+  "author": {
+    "email": "letsget23@gmail.com",
+    "name": "Gwan-duk Kim",
+    "url": "https://github.com/letsget23"
+  },
+  "publisher": "letsget23",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/letsget23/vscode-convert-px-to-rem"
+  },
+  "engines": {
+    "vscode": "^1.37.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.pxToRem"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.pxToRem",
+        "title": "convert px to rem of selections"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.37.0",
+    "glob": "^7.1.4",
+    "mocha": "^6.1.4",
+    "typescript": "^3.3.1",
+    "tslint": "^5.12.1",
+    "vscode-test": "^1.0.2"
+  }
+}
