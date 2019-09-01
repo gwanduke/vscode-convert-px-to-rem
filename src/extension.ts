@@ -34,7 +34,7 @@ const getReplaceInfosFromLine = (
           new vscode.Position(lineNum, regexExec.index),
           new vscode.Position(lineNum, regexExec.index + regexExec[0].length)
         ),
-        replaceText: regexExec[0].split("px")[0] + "rem"
+        replaceText: Number(regexExec[0].split("px")[0]) / 16 + "rem"
       });
     }
   }
