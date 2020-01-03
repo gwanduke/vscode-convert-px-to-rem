@@ -70,7 +70,7 @@ export function activate(context: vscode.ExtensionContext) {
           lineNum <= selection.end.line;
           lineNum++
         ) {
-          const regex = /[0-9]+px(?=[^a-z])|[0-9]+px$/gm;
+          const regex = /([0-9]\.)?[0-9]+px(?=[^a-z])|([0-9]\.)?[0-9]+px$/gm;
 
           const newReplaceInfos = getReplaceInfosFromLine(
             lineNum,
