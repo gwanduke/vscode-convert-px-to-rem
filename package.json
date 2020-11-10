@@ -2,19 +2,20 @@
   "name": "convert-px-to-rem",
   "displayName": "Convert px to rem",
   "description": "Convert px to rem dead simple.",
-  "version": "0.0.4",
+  "version": "0.0.10",
+  "icon": "images/icon.png",
   "author": {
-    "email": "letsget23@gmail.com",
-    "name": "Gwan-duk Kim",
-    "url": "https://github.com/letsget23"
+    "email": "gwanduke@gmail.com",
+    "name": "gwanduke",
+    "url": "https://github.com/gwanduke"
   },
-  "publisher": "letsget23",
+  "publisher": "gwanduke",
   "repository": {
     "type": "git",
-    "url": "https://github.com/letsget23/vscode-convert-px-to-rem"
+    "url": "https://github.com/gwanduke/vscode-convert-px-to-rem"
   },
   "engines": {
-    "vscode": "^1.37.0"
+    "vscode": "^1.51.0"
   },
   "categories": [
     "Other"
@@ -30,12 +31,12 @@
         "convert-px-to-rem.base-px": {
           "type": "number",
           "default": 16,
-          "description": "rem 변환시 기준이 되는 px 값 지정"
+          "description": "Specify \"px\" value per 1rem"
         },
         "convert-px-to-rem.precision": {
           "type": "number",
           "default": 4,
-          "description": "rem 변환시 소수점 이하 몇자리까지 포함할 것인지 (반올림됨)"
+          "description": "floating point precision (round off). if set 4, it display 4 numbers after dot."
         }
       }
     },
@@ -54,14 +55,14 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.1",
+    "@types/glob": "^7.1.3",
     "@types/mocha": "^5.2.6",
-    "@types/node": "^10.12.21",
-    "@types/vscode": "^1.37.0",
-    "glob": "^7.1.4",
-    "mocha": "^6.1.4",
-    "typescript": "^3.3.1",
-    "tslint": "^5.12.1",
-    "vscode-test": "^1.0.2"
+    "@types/node": "^10.17.44",
+    "@types/vscode": "^1.51.0",
+    "glob": "^7.1.6",
+    "mocha": "^6.2.3",
+    "tslint": "^5.20.1",
+    "typescript": "^3.9.7",
+    "vscode-test": "^1.4.1"
   }
 }

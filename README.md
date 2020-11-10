@@ -1,39 +1,43 @@
-# convert-px-to-rem
+# ⚡️ vscode-convert-px-to-rem
 
-문서내 선택된 영역에 대한 px을 rem으로 변환합니다.
+> Published: [VisualStudio Marketplace - Convert px to rem](https://marketplace.visualstudio.com/items?itemName=gwanduke.convert-px-to-rem)
+
+Converts unit "px" to "rem" for the selected area in the document.
 
 ## How to use
 
-- 코드내 변환할 영역 선택
-- `shift + cmd + p`
-- `> convert px to rem of selections`
+1. Select an area to convert within code
+2. Press <kbd>shift + cmd + p</kbd>
+3. Type `> convert px to rem of selections`
+
+### CSS
+
+![How to use - CSS](./docs/how-to-use-css.gif)
+
+### JavaScript
+
+![How to use - JavaScript](./docs/how-to-use-js.gif)
 
 ## Settings
 
-> `shift + cmd + p`
->
-> `> Preferences: Open Settings`
+1. Press <kbd>shift + cmd + p</kbd>
+2. Type `> Preferences: Open Settings`
+3. And you can use these options.
 
-- 1rem의 px 단위 지정
-  - "convert-px-to-rem.base-px": 16
-- rem 변환시 표시할 소수점 자리수
-  - "convert-px-to-rem.precision": 4
+```jsonc
+{
+  "convert-px-to-rem.base-px": 16, // set px per 1rem
+  "convert-px-to-rem.precision": 4 // floating point precision
+}
+```
 
-## Features
+## Todo
 
-- [x] 문서내 {숫자}px를 {숫자}rem으로 변환 (16px 기준)
-- [ ] 단축키
-- 환경설정
-  - [x] 소수점 정확도
-  - [x] 기본 px 지정
-  - 변화전 단위 코멘트 처리
+- [ ] Shortcut
+- [ ] Displaying unit before conversion.
 
 ## Extension Settings
 
-- `convert-px-to-rem.basePx`: 프로젝트에서 사용하는 기본 px 단위를 지정
+- `convert-px-to-rem.basePx`: Specify the default px units used in your project.
 
 ## Release Notes
-
-### 1.0.0
-
-Not yet.
